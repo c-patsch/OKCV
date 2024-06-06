@@ -1,0 +1,217 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/"
+  },
+  "@type": "Dataset",
+  "name": "OKCV",
+  "description": "This dataset contains a set of open-domain dialogues over the videos in the QuerYD dataset. The goal is to test AI models in their ability to process videos, manage dialogues, and integrate outside knowledge.",
+  "url": "https://anonymous.4open.science/r/OKCV-DA90/",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/deed.en",
+  "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "overall_conversational_videos_dataset_final_train.json",
+      "contentUrl": "https://anonymous.4open.science/r/OKCV-DA90/overall_conversational_videos_dataset_final_train.json",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "overall_conversational_videos_dataset_final_val.json",
+      "contentUrl": "https://anonymous.4open.science/r/OKCV-DA90/overall_conversational_videos_dataset_final_val.json",
+      "encodingFormat": "application/json"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "video_dialogue_data_train",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "conversation_turns_train",
+          "description": "List of dialogue turns for each training video.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].conversation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "begin_times_train",
+          "description": "Beginning times for each segment of dialogue in the training videos.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].begin_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "end_times_train",
+          "description": "Ending times for each segment of dialogue in the training videos.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].end_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "knowledge_type_train",
+          "description": "Type of knowledge tested in the dialogue in the training videos.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].knowledge_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "sources_train",
+          "description": "Sources used by the turker to complete the dialogue in the training videos.",
+          "dataType": "sc:URL",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].sources"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "master_question_train",
+          "description": "Master question the dialogue is based on in the training videos.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_train.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].master_question"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "video_dialogue_data_val",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "conversation_turns_val",
+          "description": "List of dialogue turns for each validation video.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].conversation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "begin_times_val",
+          "description": "Beginning times for each segment of dialogue in the validation videos.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].begin_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "end_times_val",
+          "description": "Ending times for each segment of dialogue in the validation videos.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].end_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "knowledge_type_val",
+          "description": "Type of knowledge tested in the dialogue in the validation videos.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].knowledge_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "sources_val",
+          "description": "Sources used by the turker to complete the dialogue in the validation videos.",
+          "dataType": "sc:URL",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].sources"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "master_question_val",
+          "description": "Master question the dialogue is based on in the validation videos.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "overall_conversational_videos_dataset_final_val.json"
+            },
+            "extract": {
+              "jsonPath": "$.*[*].master_question"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
