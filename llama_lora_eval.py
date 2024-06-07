@@ -96,14 +96,7 @@ def eval(args):
 
 def parse_args():
     parser = ArgumentParser()
-    # parser.add_argument("--model", type=str, default="NousResearch/Llama-2-7b-chat-hf")
-    parser.add_argument("--vllm", action="store_true")
-    parser.add_argument("--eval", action="store_true")
-    parser.add_argument("--train", action="store_true")
-    parser.add_argument("--split", required='eval' in sys.argv, default='dev', choices=["dev", "test"], help="evaluate on dev/test")
-    parser.add_argument("--outfile", required='eval' in sys.argv, help="output file to store predictions", default="predictions/llama_7b_ft.jsonl")
-    parser.add_argument("--expt_name", default="interpret_ft")
-    parser.add_argument("--device_num", default="interpret_ft")
+    parser.add_argument("--device_num", default=0)
 
     args = parser.parse_args()
 
